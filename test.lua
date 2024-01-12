@@ -18,5 +18,5 @@ AntiFlingFunction = RunService.Stepped:Connect(function()
     end
 end)
 
-repeat task.wait() until _G.AntiFlingToggled == false
+repeat task.wait() until _G.MyToggle == false
 AntiFlingFunction:Disconnect()
