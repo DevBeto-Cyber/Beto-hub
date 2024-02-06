@@ -1,36 +1,3 @@
-local player = game.Players.LocalPlayer
-
-local allowedNames = {
-    "Roberto35365",
-    "Fehlipeh_user",
-    "Korusaki_gg",
-    "KanekiGameplay0102",
-    "pestecan1bal",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-} -- Adicione os nomes permitidos aqui
-local isWhitelisted = false
-
-for _, allowedName in pairs(allowedNames) do
-    if player.Name == allowedName then
-        isWhitelisted = true
-        break -- Se encontrou um nome permitido, sai do loop
-    end
-end
-
-if isWhitelisted then
-    print("Whitelisted")
-else
-    player:Kick("Saia daqui seboso")
-end
 local CheckMobile = function()
 
     if
@@ -258,8 +225,8 @@ Tabs.Animations:AddButton({
         local Animate = plr.Character:WaitForChild("Animate")
 
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=4417977954"
-        Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=782845736"
-        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1132510133"
+        Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=742638445"
+        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=742640026"
         Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=4417979645"
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=742637942"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=782843869"
