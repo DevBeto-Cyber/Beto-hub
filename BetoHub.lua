@@ -1,15 +1,40 @@
-local CheckMobile = function()
+local player = game.Players.LocalPlayer
 
-    if
+local allowedNames = {
+    "Roberto35365",
+    "Fehlipeh_user",
+    "Korusaki_gg",
+    "KanekiGameplay0102",
+    "pestecan1bal",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+} -- Adicione os nomes permitidos aqui
+local isWhitelisted = false
 
-        game:GetService("UserInputService").TouchEnabled
-
-     then
-
-        return true 
-
+for _, allowedName in pairs(allowedNames) do
+    if player.Name == allowedName then
+        isWhitelisted = true
+        break -- Se encontrou um nome permitido, sai do loop
     end
+end
 
+if isWhitelisted then
+    print("Whitelisted")
+else
+    player:Kick("Saia daqui seboso")
+end
+local CheckMobile = function()
+    if game:GetService("UserInputService").TouchEnabled then
+        return true 
+    end
 end 
 
 IsMobile = CheckMobile()
@@ -22,119 +47,51 @@ local Players = game:GetService("Players")
 
 local LocalPlayer = Players.LocalPlayer
 
-
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local GuiService = game:GetService("GuiService")
 
-
-local GuiService = game:GetService("GuiService")
-
-
-
 local screenResolution = GuiService:GetScreenResolution()
-
 local screenWidth = screenResolution.X
-
 local screenHeight = screenResolution.Y
 
-
-
-local windowWidth = screenWidth * 0.6
-
-local windowHeight = screenHeight * 0.6
-
-
-
--- UDim2.fromOffset(500, 200),
+local windowWidth, windowHeight
 
 if not IsMobile then 
-
-    windowWidth,windowHeight = 500,200
+    windowWidth, windowHeight = 500, 200
 else
+    windowWidth, windowHeight = screenWidth * 0.6, screenHeight * 0.6
+end
 
-    local ClickButton = Instance.new("ScreenGui")
+local ClickButton = Instance.new("ScreenGui")
+ClickButton.Name = "ClickButton"
+ClickButton.Parent = game.CoreGui
+ClickButton.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-    local MainFrame = Instance.new("Frame")
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ClickButton
+MainFrame.Active = true
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+MainFrame.BorderColor3 = Color3.new(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Transparency = 1
 
-    local ImageLabel = Instance.new("ImageLabel")
+local ImageLabel = Instance.new("ImageLabel")
+ImageLabel.Parent = MainFrame
+ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+ImageLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+ImageLabel.BorderColor3 = Color3.new(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.48888889, 0, 0.48888889, 0)
+ImageLabel.Size = UDim2.new(0, 45, 0, 45)
+ImageLabel.Image = "rbxassetid://16040994833"
 
-    local TextButton = Instance.new("TextButton") 
-
-    local UICorner = Instance.new("UICorner") 
-
-    local UICorner_2 = Instance.new("UICorner")
-
-    if game.CoreGui:FindFirstChild("ClickButton") then 
-
-        game.CoreGui:FindFirstChild("ClickButton"):Destroy()
-
-    end
-
-    ClickButton.Name = "ClickButton"
-
-    ClickButton.Parent = game.CoreGui
-
-    ClickButton.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-    
-
-    MainFrame.Name = "MainFrame"
-
-    MainFrame.Parent = ClickButton
-
-    MainFrame.Active = true
-
-    MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-
-    MainFrame.BackgroundColor3 = Color3.new(1, 1, 1)
-
-    MainFrame.BorderColor3 = Color3.new(0, 0, 0)
-
-    MainFrame.BorderSizePixel = 0
-
-    MainFrame.Transparency = 1
-
-    MainFrame.Position = UDim2.new(0.187441245, 0, 0.476932675, 0)
-
-    MainFrame.Size = UDim2.new(0, 45, 0, 45)
-
-    
-
-    UICorner.CornerRadius = UDim.new(0, 100)
-
-    UICorner.Parent = MainFrame
-
-    
-
-    UICorner_2.CornerRadius = UDim.new(0, 100)
-
-    UICorner_2.Parent = ImageLabel
-
-    
-
-    ImageLabel.Parent = MainFrame
-
-    ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-
-    ImageLabel.BackgroundColor3 = Color3.new(0, 0, 0)
-
-    ImageLabel.BorderColor3 = Color3.new(0, 0, 0)
-
-    ImageLabel.BorderSizePixel = 0
-
-    ImageLabel.Position = UDim2.new(0.48888889, 0, 0.48888889, 0)
-
-    ImageLabel.Size = UDim2.new(0, 45, 0, 45)
-
-    ImageLabel.Image = "rbxassetid://16040994833"
-
-    
-
+local TextButton = Instance.new("TextButton") 
 TextButton.Parent = MainFrame
-TextButton.BackgroundColor3 = Color3.new(1, 1, 1)  -- Alteração aqui para a cor branca
+TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
 TextButton.BackgroundTransparency = 1
 TextButton.BorderColor3 = Color3.new(0, 0, 0)
 TextButton.BorderSizePixel = 0
@@ -145,11 +102,39 @@ TextButton.Font = Enum.Font.SourceSans
 TextButton.Text = ""
 TextButton.TextColor3 = Color3.new(255, 255, 255)
 TextButton.TextSize = 15
+
+local UICorner = Instance.new("UICorner") 
+UICorner.CornerRadius = UDim.new(0, 100)
+UICorner.Parent = MainFrame
+
+local UICorner_2 = Instance.new("UICorner")
+UICorner_2.CornerRadius = UDim.new(0, 100)
+UICorner_2.Parent = ImageLabel
+
+local function UpdatePosition()
+    local mousePosition = UserInputService:GetMouseLocation()
+    MainFrame.Position = UDim2.new(0, mousePosition.X - (MainFrame.Size.X.Offset / 2), 0, mousePosition.Y - (MainFrame.Size.Y.Offset / 2))
+end
+
+UserInputService.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        UpdatePosition()
+    end
+end)
+
+MainFrame.MouseEnter:Connect(function()
+    UpdatePosition()
+    MainFrame.MouseMoved:Connect(UpdatePosition)
+end)
+
+MainFrame.MouseLeave:Connect(function()
+    MainFrame.MouseMoved:Disconnect(UpdatePosition)
+end)
+
 TextButton.MouseButton1Click:Connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftControl", false, game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false, "LeftControl", false, game)
 end)
-end
 local Window = Fluent:CreateWindow({
     Title = "Beto Hub",
     SubTitle = "Universal Script // by Beto",
@@ -201,12 +186,12 @@ local Tabs = {
        end
        })
   Tabs.Character:AddButton({
-     Title = "Fling all",
-     Description = "",
-     Callback = function()
-       loadstring(game:HttpGet("https://pastebin.com/raw/Kbc2cP4m"))()
-       end
-  })
+    Title = "Shiftlock",
+    Description = "",
+    Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/Unknownproootest/Permanent-Shift-Lock-Beta/alt/PermShiftlockV2-alt'))()
+      end
+  })   
   Tabs.Character:AddButton({
      Title = "Fly",
      Description = "",
@@ -214,10 +199,30 @@ local Tabs = {
        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-I-Fly-gui-V3-I-6627"))()
        end
 })
+Tabs.Character:AddButton({
+  Title = "Fps Unlock",
+  Description = "",
+  Callback = function()
+    setfpscap(9999999)
+    end
+})
+Tabs.Character:AddButton({
+     Title = "Fling all",
+     Description = "",
+     Callback = function()
+       loadstring(game:HttpGet("https://pastebin.com/raw/Kbc2cP4m"))()
+       end
+  })
 
 --Animations
   local plr = game.Players.LocalPlayer
-
+Tabs.Animations:AddButton({
+             Title = "Free Emotes",
+             Description = "Doesn't work on Delta/Não funciona no Delta",
+             Callback = function()
+               loadstring(game:HttpGet("https://scriptblox.com/raw/Brookhaven-RP-all-emotes-6849"))()
+    end
+        })
 Tabs.Animations:AddButton({
     Title = "idle",
     Description = "by Beto",
@@ -226,7 +231,7 @@ Tabs.Animations:AddButton({
 
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=4417977954"
         Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=742638445"
-        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=742640026"
+        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1132510133"
         Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=4417979645"
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=742637942"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=782843869"
@@ -243,7 +248,7 @@ Tabs.Animations:AddButton({
 
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083445855"
 	      Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083450166"
-	      Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083473930"
+	      Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=10921269718"
 	      Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1083462077"
 	      Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083455352"
 	      Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083439238"
@@ -592,13 +597,6 @@ Tabs.Animations:AddButton({
         plr.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Climbing)
     end
 })
-        Tabs.Animations:AddButton({
-             Title = "Free Emotes",
-             Description = "Doesn't work on Delta/Não funciona no Delta",
-             Callback = function()
-               loadstring(game:HttpGet("https://scriptblox.com/raw/Brookhaven-RP-all-emotes-6849"))()
-    end
-        })
  --Esp
  Tabs.Esp:AddButton({
 
@@ -689,7 +687,7 @@ InterfaceManager:BuildInterfaceSection(Tabs.Misc)
 Window:SelectTab(1)
 
 Fluent:Notify({
-    Title = "Heaven Hub",
+    Title = "Beto Hub",
     Content = "The script has been loaded.",
     Duration = 5
 })
