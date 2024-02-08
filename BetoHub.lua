@@ -231,7 +231,7 @@ Tabs.Animations:AddButton({
 
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=4417977954"
         Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=742638445"
-        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1132510133"
+        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=782843345"
         Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=4417979645"
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=742637942"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=782843869"
