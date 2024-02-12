@@ -13,7 +13,7 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://16329392936"
+ImageButton1.Image = "rbxassetid://16347804603"
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
@@ -198,7 +198,7 @@ local LogoHub = Instance.new("ImageLabel")
     LogoHub.BackgroundTransparency = 1.000
     LogoHub.Position = UDim2.new(0, 5, 0, 1)
     LogoHub.Size = UDim2.new(0, 26, 0, 26)
-    LogoHub.Image = "rbxassetid://16329392936"
+    LogoHub.Image = "rbxassetid://16347804603"
 
     local ScrollTab = Instance.new("ScrollingFrame")
     ScrollTab.Name = "ScrollTab"
@@ -517,7 +517,7 @@ local LogoToggle = Instance.new("ImageLabel")
     LogoToggle.BackgroundTransparency = 1.000
     LogoToggle.Position = UDim2.new(0, 7, 0, 2)
     LogoToggle.Size = UDim2.new(0, 26, 0, 26)
-    LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(16329392936)
+    LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(16347804603)
 
             Circle.Name = "Circle"
             Circle.Parent = ToggleImage
@@ -616,7 +616,7 @@ local LogoToggle = Instance.new("ImageLabel")
             DropImage.Position = UDim2.new(0, 435, 0, 6)
             DropImage.Rotation = 180.000
             DropImage.Size = UDim2.new(0, 20, 0, 20)
-            DropImage.Image = "rbxassetid://10162644180"
+            DropImage.Image = "rbxassetid://16347804603"
             
             DropButton.Name = "DropButton"
             DropButton.Parent = Dropdown
@@ -1099,7 +1099,7 @@ print("Script Carregado")
 
 -------------------------------------------------------
 --library
-local Library = Update:Window("    Beto","16329392936",Enum.KeyCode.RightControl);
+local Library = Update:Window("    Beto","16347804603",Enum.KeyCode.RightControl);
 
 local H = Library:AddTab("Home","16308336145")
 local Main = Library:AddTab("Main","16293827543")
