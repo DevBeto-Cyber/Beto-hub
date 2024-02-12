@@ -1,3 +1,4 @@
+-------------------------------------------------------
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -12,7 +13,7 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://16215163513"
+ImageButton1.Image = "rbxassetid://16329392936"
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
@@ -164,7 +165,7 @@ function Update:Window(text,logo,keybind)
     MapName.Position = UDim2.new(0, 85, 0, 0)
     MapName.Size = UDim2.new(0, 81, 0, 27)
     MapName.Font = Enum.Font.GothamSemibold
-    MapName.Text = "         | Universal Script     V1"
+    MapName.Text = "         | Universal Script"
     MapName.TextColor3 = Color3.fromRGB(225, 225, 225)   
     MapName.TextSize = 20.000
     MapName.TextXAlignment = Enum.TextXAlignment.Left
@@ -177,7 +178,7 @@ function Update:Window(text,logo,keybind)
     Hubb.Position = UDim2.new(0, 480, 0, 0)
     Hubb.Size = UDim2.new(0, 81, 0, 27)
     Hubb.Font = Enum.Font.GothamSemibold
-    Hubb.Text = ""
+    Hubb.Text = "hm"
     Hubb.TextColor3 = Color3.fromRGB(255, 255, 255)
     Hubb.TextSize = 17.000
     Hubb.TextXAlignment = Enum.TextXAlignment.Left
@@ -197,7 +198,7 @@ local LogoHub = Instance.new("ImageLabel")
     LogoHub.BackgroundTransparency = 1.000
     LogoHub.Position = UDim2.new(0, 5, 0, 1)
     LogoHub.Size = UDim2.new(0, 26, 0, 26)
-    LogoHub.Image = "rbxassetid://16215163513"
+    LogoHub.Image = "rbxassetid://16329392936"
 
     local ScrollTab = Instance.new("ScrollingFrame")
     ScrollTab.Name = "ScrollTab"
@@ -516,7 +517,7 @@ local LogoToggle = Instance.new("ImageLabel")
     LogoToggle.BackgroundTransparency = 1.000
     LogoToggle.Position = UDim2.new(0, 7, 0, 2)
     LogoToggle.Size = UDim2.new(0, 26, 0, 26)
-    LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(16215163513)
+    LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(16329392936)
 
             Circle.Name = "Circle"
             Circle.Parent = ToggleImage
@@ -1097,7 +1098,8 @@ print("Script Carregado")
 
 
 -------------------------------------------------------
-local Library = Update:Window("    Beto","16215163513",Enum.KeyCode.RightControl);
+--library
+local Library = Update:Window("    Beto","16329392936",Enum.KeyCode.RightControl);
 
 local H = Library:AddTab("Home","16308336145")
 local Main = Library:AddTab("Main","16293827543")
@@ -1222,6 +1224,18 @@ spawn(function()
         until SpectatePlys == false 
         game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
     end)
+    T:AddToggle("Teleport",false,function(value)
+
+        _G.TeleportPly = value
+
+        pcall(function()
+            if _G.TeleportPly then
+                repeat topos(game:GetService("Players")[_G.SelectPly].Character.HumanoidRootPart.CFrame) wait() until _G.TeleportPly == false
+            end
+            StopTween(_G.TeleportPly)
+        end)
+    end)
+    
 -------------------------------------------------------
 --animations 
 A:AddLabel("Animations")
@@ -1570,14 +1584,20 @@ end)
   Misc:AddLabel("Only works in normal chat / Só funciona no chat normal")
   Misc:AddButton("InfYield",function()
          loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Yield/main/main.lua"))()
-        end)
+  end
+  )
   
   Misc:AddButton("Chat spy",function()
          loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Beto-hub/main/Chat_spy.lua"))()
-         end
+  end
   )
-Misc:AddButton("Re-Enter",function()
+  
+  Misc:AddButton("Fps unlock",function()
+    setfpscap(9999999)
+  end
+  )
+  Misc:AddButton("Re-Enter",function()
         loadstring(game:HttpGet("https://pastebin.com/raw/mM7JBG5h", true))() 
-    end
-)
+  end
+  )
 -------------------------------------------------------
