@@ -1184,13 +1184,7 @@ end)
 Main:AddButton("Fly",function()
   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-I-Fly-gui-V3-I-6627"))()
 end)
-Main:AddButton("tp",function()
-local you = game.Players.LocalPlayer.Character.HumanoidRootPart
-      		local location = CFrame.new(2087.052734375, -11.650469779968262, -12.764727592468262)
-      		
-      		you.CFrame = location
-        	end    
-             )    
+
 -------------------------------------------------------
 --Target
 T:AddLabel("Target")
