@@ -1186,7 +1186,7 @@ Main:AddButton("Fly",function()
 end)
 Main:AddButton("tp",function()
 local you = game.Players.LocalPlayer.Character.HumanoidRootPart
-      		local location = CFrame.new(2087.064208984375, -11.109946250915527, -11.308234214782715)
+      		local location = CFrame.new(2087.052734375, -11.650469779968262, -12.764727592468262)
       		
       		you.CFrame = location
         	end    
