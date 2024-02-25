@@ -21,7 +21,7 @@ end)
 UICorner.Parent = ImageButton1
 
 do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy();end;if _G.Color == nil then
-    _G.Color = Color3.fromRGB(0, 247, 255)
+    _G.Color = Color3.fromRGB(108, 26, 255)
    end 
 end
 
