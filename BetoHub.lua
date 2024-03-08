@@ -1,4 +1,3 @@
--------------------------------------------------------
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -539,4 +538,4 @@ local LogoToggle = Instance.new("ImageLabel")
                     ):Play()
                 else
                     toggled = false
-                    Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0.2
+                    Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0.2,tru
