@@ -1730,7 +1730,8 @@ end)
          loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Beto-hub/main/Chat_spy.lua"))()
   end
   )
-  
+  Misc:AddButton("Translator", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Beto-hub/main/Translator.lua"))() end
+  )
   Misc:AddButton("Fps unlock",function()
     setfpscap(9999999)
   end
