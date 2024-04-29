@@ -1,3 +1,45 @@
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "rbxassetid://16329392936"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+end)
+UICorner.Parent = ImageButton1
+
+do local GUI = game.CoreGui:FindFirstChild("Discord")
+   if GUI then
+       GUI:Destroy()
+   end
+end
+
+do
+    local NamfonHub = workspace:FindFirstChild("DeeKub")
+    if NamfonHub then
+        NamfonHub:Destroy()
+    end
+end
+
+local Namfon = Instance.new("Part",workspace)
+Namfon.Size = Vector3.new(30,5,30)
+Namfon.Name = "DeeKub"
+Namfon.Transparency = 1
+Namfon.CanCollide = true
+Namfon.Anchored = true
+
+
 local DiscordLib = {}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -81,16 +123,14 @@ local function MakeDraggable(topbarobject, object)
 	)
 end
 
-local Discord = Instance.new("ScreenGui")
-Discord.Name = "Discord"
-Discord.Parent = game.CoreGui
-Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-function DiscordLib:Window(text)
+function DiscordLib:Window(text, keybind)
 	local currentservertoggled = ""
+	local uihide = false
 	local minimized = false
 	local fs = false
 	local settingsopened = false
+	local keybind = keybind or Enum.KeyCode.RightControl
+	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	local MainFrame = Instance.new("Frame")
 	local TopFrame = Instance.new("Frame")
 	local Title = Instance.new("TextLabel")
@@ -111,6 +151,11 @@ function DiscordLib:Window(text)
 	local ServersHoldLayout = Instance.new("UIListLayout")
 	local ServersHoldPadding = Instance.new("UIPadding")
 	local TopFrameHolder = Instance.new("Frame")
+	
+	local Discord = Instance.new("ScreenGui")
+	Discord.Name = "Discord"
+	Discord.Parent = game.CoreGui
+	Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	MainFrame.Name = "MainFrame"
 	MainFrame.Parent = Discord
@@ -337,6 +382,29 @@ function DiscordLib:Window(text)
 			minimized = not minimized
 		end
 	)
+	
+	UserInputService.InputBegan:Connect(function(input)
+	        if input.KeyCode == Enum.KeyCode[yoo] then
+	            if uihide == false then
+	                uihide = true
+	                MainFrame:TweenSize(
+	                UDim2.new(0, 0, 0, 0),
+	                Enum.EasingDirection.Out,
+	                Enum.EasingStyle.Quart,
+	                .3,
+	                true)
+	            else
+	                uihide = false
+	                MainFrame:TweenSize(
+	                UDim2.new(0, 681, 0, 396),
+	                Enum.EasingDirection.Out,
+	                Enum.EasingStyle.Quart,
+	                .3,
+	                true)
+	            end
+	        end
+	    end)
+	
 	
 	local SettingsOpenBtn = Instance.new("TextButton")
 	local SettingsOpenBtnIco = Instance.new("ImageLabel")
@@ -3180,68 +3248,7 @@ function DiscordLib:Window(text)
 			            return labelfunc
 			            end
 			
-			function ChannelContent:Bind(text, presetbind, callback)
-				local Key = presetbind.Name
-				local Keybind = Instance.new("TextButton")
-				local KeybindTitle = Instance.new("TextLabel")
-				local KeybindText = Instance.new("TextLabel")
-
-				Keybind.Name = "Keybind"
-				Keybind.Parent = ChannelHolder
-				Keybind.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
-				Keybind.BorderSizePixel = 0
-				Keybind.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
-				Keybind.Size = UDim2.new(0, 401, 0, 30)
-				Keybind.AutoButtonColor = false
-				Keybind.Font = Enum.Font.Gotham
-				Keybind.Text = ""
-				Keybind.TextColor3 = Color3.fromRGB(255, 255, 255)
-				Keybind.TextSize = 14.000
-
-				KeybindTitle.Name = "KeybindTitle"
-				KeybindTitle.Parent = Keybind
-				KeybindTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				KeybindTitle.BackgroundTransparency = 1.000
-				KeybindTitle.Position = UDim2.new(0, 5, 0, 0)
-				KeybindTitle.Size = UDim2.new(0, 200, 0, 30)
-				KeybindTitle.Font = Enum.Font.Gotham
-				KeybindTitle.Text = text
-				KeybindTitle.TextColor3 = Color3.fromRGB(127, 131, 137)
-				KeybindTitle.TextSize = 14.000
-				KeybindTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-				KeybindText.Name = "KeybindText"
-				KeybindText.Parent = Keybind
-				KeybindText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				KeybindText.BackgroundTransparency = 1.000
-				KeybindText.Position = UDim2.new(0, 316, 0, 0)
-				KeybindText.Size = UDim2.new(0, 85, 0, 30)
-				KeybindText.Font = Enum.Font.Gotham
-				KeybindText.Text = presetbind.Name
-				KeybindText.TextColor3 = Color3.fromRGB(127, 131, 137)
-				KeybindText.TextSize = 14.000
-				KeybindText.TextXAlignment = Enum.TextXAlignment.Right
-				
-				Keybind.MouseButton1Click:Connect(function()
-					KeybindText.Text = "..."
-					local inputwait = game:GetService("UserInputService").InputBegan:wait()
-					if inputwait.KeyCode.Name ~= "Unknown" then
-						KeybindText.Text = inputwait.KeyCode.Name
-						Key = inputwait.KeyCode.Name
-					end
-				end)
-				
-				game:GetService("UserInputService").InputBegan:connect(
-				function(current, pressed)
-					if not pressed then
-						if current.KeyCode.Name == Key then
-							pcall(callback)
-						end
-					end
-				end
-				)
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
-			end
+			
 			
 			return ChannelContent
 		end
