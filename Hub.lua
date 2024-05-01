@@ -197,7 +197,12 @@ Main:AddLabel("Main")
 Main:AddLine()
 
 
-
+Main:AddTextbox("Cmdbar","Type here!",function(t)
+  command = t
+	Players:Chat(command)
+	SendNotify("Executed",(""..command),3)
+	t.Text = ""
+  end)
 Main:AddButton("Shiftlock",function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/Unknownproootest/Permanent-Shift-Lock-Beta/alt/PermShiftlockV2-alt'))()
 end)
