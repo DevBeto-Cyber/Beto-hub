@@ -1,4 +1,4 @@
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/DC/LibraryDc.txt")()
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Libraries/Dc/LibraryDc.txt")()
 
 local Library = DiscordLib:Window("Discord Library")
 
@@ -147,6 +147,16 @@ function Tfling()
         end
     end)
 end
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.AutoClick or Fastattack then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+            end)
+        end
+    end)
+   end)
 
 ---------------------------------------------------                 --//Home\\--
 local Time = H:AddLabel("Timezone:");
@@ -244,6 +254,9 @@ Main:AddButton("Fly",function()
   	plr.Character.Humanoid:ChangeState(15)
   end
   )
+  Main:AddToggle("Auto Click",false,function(value)
+_G.AutoClick = value
+end)
 ---------------------------------------------------                --//Target\\--
     local plyserv = T:AddLabel("Players")
     spawn(function()

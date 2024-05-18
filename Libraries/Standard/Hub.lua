@@ -1,4 +1,4 @@
-local Update = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Library.txt")()
+local Update = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Libraries/Standard/Library.txt")()
 
   print("Library Executada")
 
