@@ -204,7 +204,7 @@ Main:AddTextbox("Cmdbar","Type here!",function(t)
 	t.Text = ""
   end)
 Main:AddButton("Shiftlock",function()
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/Unknownproootest/Permanent-Shift-Lock-Beta/alt/PermShiftlockV2-alt'))()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Others/Shiftlock.lua'))()
 end)
 
 Main:AddToggle("Touch", false, function(v)
@@ -699,7 +699,7 @@ A:AddButton("idle",function()
 E:AddLabel("Esp")
 E:AddLine()
 E:AddButton("Esp Box",function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Beto-hub/main/EspBox.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Others/EspBox.lua"))()
 end)
 
 E:AddButton("Red Circle",function()
@@ -732,7 +732,7 @@ end)
   Misc:AddLabel("Only works in normal chat / Só funciona no chat normal")
   
   Misc:AddButton("Anti-Fling",function()
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Beto-hub/main/Anti-fling.lua"))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Others/Anti-fling.lua"))()
   end)
   
   Misc:AddToggle("Void Protection",false,function(bool)
@@ -750,10 +750,10 @@ end)
   )
   
   Misc:AddButton("Chat spy",function()
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Beto-hub/main/Chat_spy.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Others/Spy.lua"))()
   end
   )
-  Misc:AddButton("Translator", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Beto-hub/main/Translator.lua"))() end
+  Misc:AddButton("Translator", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Others/Translator.lua"))() end
   )
   Misc:AddButton("Fps unlock",function()
     setfpscap(9999999)
@@ -776,6 +776,9 @@ end)
   coroutine.resume(Rejoin)
   end
   )
+  Misc:AddButton("HttpSpy",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Others/HttpSpy.lua"))()
+    end)
   Misc:AddButton("Get Cords", function()
    copySpawnCoordinatesToClipboard(game.Players.LocalPlayer)
   end
