@@ -513,18 +513,19 @@ local function EspPc()
 		     if Pc then
 		         for _, obj in ipairs(game.Workspace:GetDescendants()) do
 		             if obj.Name == "ComputerTable" and not obj:FindFirstChild("PCHighlight") then
-		                 local hili = Instance.new("Highlight", workspace)
-		                 esps["PCHighlight"] = hili
+		                 local hili = Instance.new("Highlight")
 		                 hili.Name = "PCHighlight"
-		                 hili.OutlineTransparency = 1.000
+		                 hili.OutlineTransparency = 15.000
 		                 hili.Adornee = obj
 		                 hili.FillColor = obj:FindFirstChild("Screen").Color
+		                 hili.Parent = obj
 		             end
 		         end
 		     else
 		         for _, obj in ipairs(game.Workspace:GetDescendants()) do
-		             if obj:FindFirstChild('PCHighlight') then
-		                 obj:FindFirstChild('PCHighlight'):Destroy()
+		             local highlight = obj:FindFirstChild("PCHighlight")
+		             if highlight then
+		                 highlight:Destroy()
 		             end
 		         end
 		     end
