@@ -139,6 +139,17 @@ function Tfling()
     end)
 end
 
+spawn(function()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if _G.AutoClick or Fastattack then
+                 pcall(function()
+                    game:GetService'VirtualUser':CaptureController()
+                    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+                end)
+            end
+        end)
+       end)
+
 ---------------------------------------------------                 --//Home\\--
 H:AddLabel("Home")
 H:AddLine()
@@ -226,7 +237,11 @@ Main:AddButton("Respawn",function()
 	plr.CharacterAdded:wait(); task.wait(GetPing()+0.1)
 	TeleportTO(RsP.X,RsP.Y,RsP.Z,"pos","safe")
 end)
- 
+
+Main:AddToggle("Auto Click",false,function(value)
+_G.AutoClick = value
+end)
+
  Main:AddButton("Explode",function()
   ToggleRagdoll(false)
 	task.wait()
