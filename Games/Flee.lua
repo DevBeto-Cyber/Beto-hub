@@ -509,28 +509,75 @@ game.Players.PlayerAdded:Connect(function(newplr)
     coroutine.wrap(ESP)()
 end)
 
-local function EspPc()
-		     if Pc then
-		         for _, obj in ipairs(game.Workspace:GetDescendants()) do
-		             if obj.Name == "ComputerTable" and not obj:FindFirstChild("PCHighlight") then
-		                 local hili = Instance.new("Highlight")
-		                 hili.Name = "PCHighlight"
-		                 hili.OutlineTransparency = 15.000
-		                 hili.Adornee = obj
-		                 hili.FillColor = obj:FindFirstChild("Screen").Color
-		                 hili.Parent = obj
-		             end
-		         end
-		     else
-		         for _, obj in ipairs(game.Workspace:GetDescendants()) do
-		             local highlight = obj:FindFirstChild("PCHighlight")
-		             if highlight then
-		                 highlight:Destroy()
-		             end
-		         end
-		     end
-		 end
-  			      
+function EspPc()
+         if Pc then
+             for _, v in pairs(game.Workspace:GetDescendants()) do
+                 if v.Name == "ComputerTable" then
+                     local pc = Instance.new("Highlight")
+                     pc.Name = "PCHighlight"
+                     pc.OutlineTransparency = 1
+                     pc.Adornee = v
+                     pc.Parent = v
+     
+                     local screen = v:FindFirstChild("Screen")
+                     if screen then
+                         pc.FillColor = screen.Color
+                         screen:GetPropertyChangedSignal("Color"):Connect(function()
+                             if pc.Parent then
+                                 pc.FillColor = screen.Color
+                             end
+                         end)
+                     end
+                 end
+             end
+         end
+     end
+
+local function Esppod()
+  if pod then
+    for _, obj in ipairs(game.Workspace:GetDescendants()) do
+    				if obj.Name == "FreezePod" then
+    					local hili = Instance.new("Highlight")
+    					hili.Name = "PodsHighlight"
+    					hili.OutlineTransparency = 1
+    					hili.Adornee = obj
+    					hili.FillColor = Color3.fromRGB(0, 200, 255)
+    					hili.Parent = obj
+    				end
+          end
+       end
+    end
+
+local function espE()
+  if Exit then
+    for _, e in pairs(game.workspace:GetDescendants()) do
+      if e.Name == "ExitDoor" and not e:FindFirstChild("ExitsHighlight") then
+        local door = Instance.new("Highlight")
+        door.Name = "ExitsHighlight"
+        door.OutlineTransparency = 1
+        door.Adornee = e
+        door.FillColor = Color3.fromRGB(255, 255, 0)
+        door.Parent = e
+      end
+    end
+  end
+end
+
+local function espv()
+  if c then
+    for _, v in pairs(game.workspace:GetDescendants()) do
+      if v.Name == "Vent" then
+        local vent = Instance.new("Highlight")
+        vent.Name = "VentH"
+        vent.OutlineTransparency = 1
+        vent.Adornee = v
+        vent.FillColor = Color3.fromRGB(255, 255, 255)
+        vent.Parent = v
+      end
+    end
+  end
+end
+
 --main
     Tabs.Main:AddButton({
       Title = "Shiftlock",
@@ -553,28 +600,80 @@ P_Toggle:OnChanged(function(v)
     end
 end)
 
-    local PcT = Tabs.Esp:AddToggle("PcT", {
-        Title = "Esp Pc",
-        Default = false
-    })
-    
-    local runService = game:GetService("RunService")
-    
-    PcT:OnChanged(function(Value)
-        Pc = Value
-    
-        -- Se já houver uma thread rodando, finalize-a antes de iniciar uma nova
-        if EspPcThread then
-            EspPcThread:Disconnect()
-        end
-    
-        -- Inicia ou para a lógica de ESP
-        if Pc then
-            EspPcThread = runService.RenderStepped:Connect(function()
-                EspPc()
-            end)
-        end
+local Esppc = Tabs.Esp:AddToggle("Esppc", {
+           Title = "Esp Pc",
+           Default = false
+       })
+       
+       Esppc:OnChanged(function(Value)
+           Pc = Value
+           if Pc then
+               EspPc()
+           else
+               for _, v in pairs(game.Workspace:GetDescendants()) do
+                   local highlight = v:FindFirstChild('PCHighlight')
+                   if highlight then
+                       highlight:Destroy()
+                   end
+               end
+           end
+       end)
+       
+local EspPod = Tabs.Esp:AddToggle("EspPod", {
+            Title = "Esp Pod",
+            Default = false
+        })
+        
+        EspPod:OnChanged(function(value)
+          pod = value
+          if pod then
+            Esppod()
+          else 
+  			  for _, obj in pairs(game.workspace:GetDescendants()) do
+  			    local dpod = obj:FindFirstChild('PodsHighlight')
+  			    if dpod then
+  			      dpod:Destroy()
+  			    end
+  			  end
+  		  end
     end)
+
+local EspE = Tabs.Esp:AddToggle("EspE", {
+        Title = "Esp Exits",
+        Default = false
+})
+
+  EspE:OnChanged(function(value)
+    Exit = value
+    if Exit then
+      espE()
+      else
+        for _, e in pairs(game.workspace:GetDescendants()) do
+          local dexit = e:FindFirstChild('ExitsHighlight')
+          if dexit then
+            dexit:Destroy()
+          end
+        end
+     end
+ end)
+
+local EspV = Tabs.Esp:AddToggle("EspV", {
+        Title = "Esp Vent",
+        Default = false
+})
+  EspV:OnChanged(function(value)
+    c = value
+    if c then
+      espv()
+      else
+        for _, v in pairs(game.workspace:GetDescendants()) do
+          local dvent = v:FindFirstChild('VentH')
+          if dvent then
+            dvent:Destroy()
+          end
+        end
+     end
+   end)
 --misc
     _G.V4 = "foi"
     local AntiF = Tabs.Misc:AddToggle("AntiF", {
@@ -698,11 +797,5 @@ end)
     SaveManager:BuildConfigSection(Tabs.Misc)
     
     Window:SelectTab(1)
-    
-    Fluent:Notify({
-        Title = "Fluent",
-        Content = "The script has been loaded.",
-        Duration = 8
-    })
     
     SaveManager:LoadAutoloadConfig()
