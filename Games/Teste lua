@@ -43,4 +43,4 @@ function EspPc()
 		              pc.OutlineTransparency = 1
 		              pc.Adornee = v
 		              pc.FillColor = v:FindFirstChild("Screen").Color
-		              pc.Parent = v
+		              pc.Parent = v:
