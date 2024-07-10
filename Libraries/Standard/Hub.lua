@@ -1,6 +1,6 @@
 local message = Instance.new("Message", workspace)
 		 message.Text = "Script Loading..."
-		 wait(2)
+		 wait(1)
 		 message:Destroy()
 		 local VirtualInputManager = game:GetService("VirtualInputManager")
 		 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9.Value, false, game)
