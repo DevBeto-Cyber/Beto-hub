@@ -1,3 +1,10 @@
+local message = Instance.new("Message", workspace)
+		 message.Text = "Script Loading..."
+		 wait(2)
+		 message:Destroy()
+		 local VirtualInputManager = game:GetService("VirtualInputManager")
+		 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9.Value, false, game)
+
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Libraries/Dc/LibraryDc.txt")()
 
 local Library = DiscordLib:Window("Discord Library")
