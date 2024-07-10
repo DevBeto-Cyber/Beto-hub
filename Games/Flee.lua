@@ -1,3 +1,10 @@
+local message = Instance.new("Message", workspace)
+		 message.Text = "Script Loading..."
+		 wait(1)
+		 message:Destroy()
+		 local VirtualInputManager = game:GetService("VirtualInputManager")
+		 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9.Value, false, game)
+
 local CheckMobile = function()
     if game:GetService("UserInputService").TouchEnabled then
         return true 
