@@ -1,3 +1,9 @@
+local message = Instance.new("Message", workspace)
+		 message.Text = "Script Loading..."
+		 wait(2)
+		 message:Destroy()
+		 local VirtualInputManager = game:GetService("VirtualInputManager")
+		 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9.Value, false, game)
 local Update = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Libraries/Standard/Library.txt")()
 
   print("Library Executada")
