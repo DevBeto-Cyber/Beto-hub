@@ -593,6 +593,35 @@ end
         loadstring(game:HttpGet("https://pastebin.com/raw/zBbLeZmD"))()
         end
     })
+  
+  local antifail = false
+    
+    local Error = Tabs.Main:AddToggle("Error", {
+        Title = "Anti Error Pc",
+        Default = true
+    })
+    
+    Error:OnChanged(function(v)
+        antifail = v
+    end)
+    
+    task.spawn(function() 
+        if game:GetService("RunService"):IsStudio() then return end -- :)
+    
+        local OldNameCall = nil
+    
+        OldNameCall = hookmetamethod(game, "__namecall", function(Self, ...)
+            local Args = {...}
+            local NamecallMethod = getnamecallmethod()
+    
+            if NamecallMethod == "FireServer" and Args[1] == "SetPlayerMinigameResult" and antifail then
+                print("Minigame result - Intercepting result to true")
+                Args[2] = true
+            end
+    
+            return OldNameCall(Self, unpack(Args))
+        end)
+    end)
 --esp
     local P_Toggle = Tabs.Esp:AddToggle("P", {
     Title = "Esp Players and Beast",
