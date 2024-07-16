@@ -595,7 +595,7 @@ end
     })
   local antifail = false
     
-    local Error = Tabs.Main:AddToggle({
+    local Error = Tabs.Main:AddToggle("Error",{
         Title = "Anti Error Pc",
         Default = false
     })
