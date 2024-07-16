@@ -593,9 +593,10 @@ end
         loadstring(game:HttpGet("https://pastebin.com/raw/zBbLeZmD"))()
         end
     })
+  
   local antifail = false
     
-    local Error = Tabs.Main:AddToggle("Error",{
+    local Error = Tabs.Main:AddToggle("Error", {
         Title = "Anti Error Pc",
         Default = false
     })
