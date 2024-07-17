@@ -43,7 +43,7 @@ else
     Namfon.Size = Vector3.new(30,5,30)
     Namfon.Name = "DeeKub"
     Namfon.Transparency = 1
-    Namfon.CanCollide = true
+    Namfon.CanCollide = false
     Namfon.Anchored = true
 end
 
