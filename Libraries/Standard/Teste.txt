@@ -122,7 +122,7 @@ function Update:Window(text, logo, keybind)
     Background.Name = "Background"
     Background.Parent = Main
     Background.Image = "rbxassetid://18540832673"
-    Background.BackgroundTransparency = 1.000
+     Background.BackgroundTransparency = 1.000
 
     local UICorner = Instance.new("UICorner")
     UICorner.Parent = Main
@@ -232,6 +232,13 @@ function Update:Window(text, logo, keybind)
     Page.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
     Page.Position = UDim2.new(0.245426834, 0, 0.075000003, 0)
     Page.Size = UDim2.new(0, 490, 0, 365)
+    
+    local imageLabel = Instance.new("ImageLabel")
+    imageLabel.Parent = Page
+    imageLabel.Size = UDim2.new(0, 100, 0, 100)
+    imageLabel.Position = UDim2.new(0.5, -50, 0.5, -50)
+    imageLabel.Image = "rbxassetid://18540832673"
+    imageLabel.BackgroundTransparency = 1
 
     local UICorner = Instance.new("UICorner")
     UICorner.Parent = Page
