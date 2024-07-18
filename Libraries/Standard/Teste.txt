@@ -235,7 +235,7 @@ function Update:Window(text, logo, keybind)
     
     local imageLabel = Instance.new("ImageLabel")
     imageLabel.Parent = Page
-    imageLabel.Size = UDim2.new(0, 100, 0, 100)
+    imageLabel.Size = UDim2.new(0, 490, 0, 365)
     imageLabel.Position = UDim2.new(0.5, -50, 0.5, -50)
     imageLabel.Image = "rbxassetid://18540832673"
     imageLabel.BackgroundTransparency = 1
