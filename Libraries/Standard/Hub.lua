@@ -4,7 +4,7 @@ local message = Instance.new("Message", workspace)
 		 message:Destroy()
 		 local VirtualInputManager = game:GetService("VirtualInputManager")
 		 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9.Value, false, game)
-local Update = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Libraries/Standard/Library.txt")()
+local Update = loadstring(game:HttpGet"https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Libraries/Standard/Teste.txt")()
 
   print("Library Executada")
 
