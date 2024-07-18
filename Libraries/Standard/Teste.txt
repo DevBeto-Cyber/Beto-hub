@@ -94,30 +94,38 @@ end
 
 local Update = {}
 
-function Update:Window(text,logo,keybind)
+function Update:Window(text, logo, keybind)
     local uihide = false
     local abc = false
     local logo = logo or 0
     local currentpage = ""
     local keybind = keybind or Enum.KeyCode.RightControl
-    local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
+    local yoo = string.gsub(tostring(keybind), "Enum.KeyCode.", "")
     
     local SOMEXHUB = Instance.new("ScreenGui")
     SOMEXHUB.Name = "SOMEXHUB"
     SOMEXHUB.Parent = game.CoreGui
     SOMEXHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+    -- Adicionando o ImageLabel para o fundo
+    local Background = Instance.new("ImageLabel")
+    Background.Name = "Background"
+    Background.Parent = SOMEXHUB
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.Position = UDim2.new(0, 0, 0, 0)
+    Background.Image = "rbxassetid://18540832673"
+    Background.BackgroundTransparency = 1.000
+
     local Main = Instance.new("Frame")
     Main.Name = "Main"
     Main.Parent = SOMEXHUB
     Main.ClipsDescendants = true
-    Main.AnchorPoint = Vector2.new(0.5,0.5)
+    Main.AnchorPoint = Vector2.new(0.5, 0.5)
     Main.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
     Main.Position = UDim2.new(0.5, 0, 0.5, 0)
     Main.Size = UDim2.new(0, 0, 0, 0)
 
-    
-    Main:TweenSize(UDim2.new(0, 656, 0, 350),"Out","Quad",0.4,true)
+    Main:TweenSize(UDim2.new(0, 656, 0, 350), "Out", "Quad", 0.4, true)
 
     local UICorner = Instance.new("UICorner")
     UICorner.Parent = Main
@@ -190,7 +198,7 @@ function Update:Window(text,logo,keybind)
     Tab.Position = UDim2.new(0, 5, 0, 30)
     Tab.Size = UDim2.new(0, 150, 0, 350)
 
-local LogoHub = Instance.new("ImageLabel")
+    local LogoHub = Instance.new("ImageLabel")
     LogoHub.Name = "LogoHub"
     LogoHub.Parent = Top
     LogoHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -227,7 +235,6 @@ local LogoHub = Instance.new("ImageLabel")
     Page.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
     Page.Position = UDim2.new(0.245426834, 0, 0.075000003, 0)
     Page.Size = UDim2.new(0, 490, 0, 365)
-    Page.ImageLabel = "rbxassetid://18540832673"
 
     local UICorner = Instance.new("UICorner")
     UICorner.Parent = Page
@@ -248,7 +255,6 @@ local LogoHub = Instance.new("ImageLabel")
     PageList.Parent = MainPage
 
     local UIPageLayout = Instance.new("UIPageLayout")
-
     UIPageLayout.Parent = PageList
     UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
     UIPageLayout.EasingDirection = Enum.EasingDirection.InOut
@@ -260,7 +266,7 @@ local LogoHub = Instance.new("ImageLabel")
     UIPageLayout.ScrollWheelInputEnabled = false
     UIPageLayout.TouchInputEnabled = false
     
-    MakeDraggable(Top,Main)
+    MakeDraggable(Top, Main)
 
     UserInputService.InputBegan:Connect(function(input)
         if input.KeyCode == Enum.KeyCode[yoo] then
