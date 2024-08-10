@@ -17,7 +17,7 @@ oldhmmnc = hookmetamethod(game, "__namecall", function(self, ...)
     return oldhmmnc(self, ...)
 end)
 
-print("Anti-kick funcionando")
+print("Anti-kick funcionando.")
 
 -- Spy
 enabled = true --chat "/spy" to toggle!
