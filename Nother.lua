@@ -79,7 +79,7 @@ game:GetService("ReplicatedStorage").Security[""]:Destroy()
 game:GetService("ReplicatedStorage").Security:Destroy()
 game:GetService("Players").LocalPlayer.PlayerScripts.Client.DeviceChecker:Destroy()
 
-print("anti cheat fucked and destroyed")
+-- Spy
 enabled = true --chat "/spy" to toggle!
 spyOnMyself = false --if true will check your messages too
 public = false --if true will chat the logs publicly (fun, risky)
