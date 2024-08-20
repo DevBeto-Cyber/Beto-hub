@@ -1,24 +1,3 @@
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-local oldhmmi, oldhmmnc
-
-oldhmmi = hookmetamethod(game, "__index", function(self, method)
-    if self == LocalPlayer and method:lower() == "kick" then
-        return error("Expected ':' not '.' when calling member function Kick", 2)
-    end
-    return oldhmmi(self, method)
-end)
-
-oldhmmnc = hookmetamethod(game, "__namecall", function(self, ...)
-    if self == LocalPlayer and getnamecallmethod():lower() == "kick" then
-        return
-    end
-    return oldhmmnc(self, ...)
-end)
-
-print("Anti-kick funcionando.")
-
 -- Spy
 enabled = true --chat "/spy" to toggle!
 spyOnMyself = false --if true will check your messages too
