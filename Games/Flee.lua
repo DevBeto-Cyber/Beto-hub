@@ -740,6 +740,7 @@ local function esppc()
                 end
             end
         end
+        wait(1)
     end
 end
 
@@ -782,6 +783,7 @@ local function Esppod()
                 hili.Parent = obj
             end
         end
+        wait(1)
     end
 end
 
@@ -824,6 +826,7 @@ local function espE()
                 door.Parent = e
             end
         end
+        wait(1)
     end
 end
 
@@ -866,6 +869,7 @@ local function espv()
                 vent.Parent = v
             end
         end
+        wait(1)
     end
 end
 
