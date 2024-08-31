@@ -900,21 +900,21 @@ local AntiF =
 )
 
 AntiF:OnChanged(
-    function(v)
+    function(f)
         if antifling then
             antifling:Disconnect()
             antifling = nil
         end
 
-        if v then
+        if f then
             antifling =
                 RunService.Stepped:Connect(
                 function()
                     for _, player in pairs(Players:GetPlayers()) do
                         if player ~= speaker and player.Character then
-                            for _, part in pairs(player.Character:GetDescendants()) do
-                                if part:IsA("BasePart") then
-                                    part.CanCollide = false
+                            for _, v in pairs(player.Character:GetDescendants()) do
+                                if v:IsA("BasePart") then
+                                    v.CanCollide = false
                                 end
                             end
                         end
