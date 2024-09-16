@@ -1,0 +1,92 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager =
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager =
+    loadstring(
+    game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua")
+)()
+
+
+local Window =
+    Fluent:CreateWindow(
+    {
+        Title = "all",
+        SubTitle = "by Beto",
+        TabWidth = 160,
+        Size = UDim2.fromOffset(530, 350),
+        Acrylic = true,
+        Theme = "Dark",
+        MinimizeKey = Enum.KeyCode.LeftControl
+    }
+)
+
+local Tabs = {
+    Main = Window:AddTab(
+        {
+            Title = "Main",
+            Icon = "book"
+        }
+    ),
+    S = Window:AddTab(
+        {
+            Title = "Script",
+            Icon = "eye"
+        }
+    ),
+    Misc = Window:AddTab(
+        {
+            Title = "Misc",
+            Icon = "align-justify"
+        }
+    )
+}
+
+Tabs.Main:AddButton(
+    {
+        Title = "Shiftlock",
+        Description = "Script Shiftlock",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/zBbLeZmD"))()
+        end
+    }
+)
+
+Tabs.S:AddButton(
+    {
+        Title = "Universal",
+        Description = "Script Universal",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Libraries/Standard/Hub.lua"))()
+        end
+    }
+)
+
+Tabs.S:AddButton(
+    {
+        Title = "Infyield",
+        Description = "cmd",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Roberto353656/Yield/main/main.lua"))()
+        end
+    }
+)
+
+Tabs.S:AddButton(
+    {
+        Title = "flee",
+        Description = "marretao",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Games/Flee.lua"))()
+        end
+    }
+)
+
+Tabs.S:AddButton(
+    {
+        Title = "dex",
+        Description = "dex",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/DEX-Explorer/main/Mobile.lua"))()
+        end
+    }
+)
