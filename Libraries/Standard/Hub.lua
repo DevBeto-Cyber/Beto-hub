@@ -221,7 +221,7 @@ Main:AddTextbox("Cmdbar","Type here!",function(t)
 	t.Text = ""
   end)
 Main:AddButton("Shiftlock",function()
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/JosejamesDev/Beto-hub/main/Others/Shiftlock.lua'))()
+  loadstring(game:HttpGet('https://pastebin.com/raw/zBbLeZmD'))()
 end)
 
 Main:AddToggle("Touch", false, function(v)
