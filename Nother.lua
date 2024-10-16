@@ -33,7 +33,7 @@ local function onChatted(p,msg)
 					hidden = false
 				end
 			end)
-			wait(.5)
+			wait(.4)
 			conn:Disconnect()
 			if hidden and enabled then
 				if public then
