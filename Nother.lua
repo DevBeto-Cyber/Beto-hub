@@ -61,6 +61,5 @@ chatFrame.ChatChannelParentFrame.Visible = true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
 local button = game:GetService("CoreGui").TopBarApp.UnibarLeftFrame.StackedElements.Button or game:GetService("CoreGui").TopBarApp.TopBarFrame.LeftFrame.Button
 if button then
-    d:Destroy()
+    button:Destroy()
 end
-print("test")
