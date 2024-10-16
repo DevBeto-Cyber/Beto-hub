@@ -59,7 +59,7 @@ if not player.PlayerGui:FindFirstChild("Chat") then wait(3) end
 local chatFrame = player.PlayerGui.Chat.Frame
 chatFrame.ChatChannelParentFrame.Visible = true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
-local button = game:GetService("CoreGui").TopBarApp.TopBarFrame.LeftFrame.Button or game:GetService("CoreGui").TopBarApp.UnibarLeftFrame.StackedElements.Button
+local button = game:GetService("CoreGui").TopBarApp.UnibarLeftFrame.StackedElements.Button or game:GetService("CoreGui").TopBarApp.TopBarFrame.LeftFrame.Button
 if button then
     d:Destroy()
 end
