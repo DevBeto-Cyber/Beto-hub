@@ -63,3 +63,4 @@ local button = game:GetService("CoreGui").TopBarApp.UnibarLeftFrame.StackedEleme
 if button then
     d:Destroy()
 end
+print("test")
