@@ -64,12 +64,24 @@ if button then
     button:Destroy()
 end
 if game.PlaceId == 893973440 then
-	-- Configuração da Interface
+-- Configuração da Interface
 local function criarInterface()
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "ContadorGUI"
     screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     
+    -- Criação do novo rótulo acima do número
+    local labelTitulo = Instance.new("TextLabel")
+    labelTitulo.Size = UDim2.new(0, 100, 0, 50)
+    labelTitulo.Position = UDim2.new(0.5, 157, 0.5, -197) -- Ajuste para ficar acima
+    labelTitulo.Text = "Prancha"
+    labelTitulo.Font = Enum.Font.SourceSans
+    labelTitulo.TextSize = 24
+    labelTitulo.TextColor3 = Color3.new(1, 1, 1)
+    labelTitulo.BackgroundTransparency = 1
+    labelTitulo.Parent = screenGui
+    
+    -- Criação do label para o número
     local textLabel = Instance.new("TextLabel")
     textLabel.Size = UDim2.new(0, 100, 0, 50)
     textLabel.Position = UDim2.new(0.5, 157, 0.5, -167)
@@ -95,7 +107,7 @@ function Contador.new(textLabel)
 end
 
 function Contador:incrementar()
-    self.valor += 1
+    self.valor += 5
     self:atualizarTexto()
 end
 
@@ -130,7 +142,7 @@ local function monitorarCaptura(contador)
             end
         else
             -- Aguarda de 2 a 3 segundos e reseta o contador se isGameActive estiver falso
-            wait(math.random(2, 3))
+            wait(math.random(3,4))
             contador:resetar()
         end
     end
