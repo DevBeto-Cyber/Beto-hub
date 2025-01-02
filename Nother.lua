@@ -62,4 +62,5 @@ chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Positio
 local button = game:GetService("CoreGui"):WaitForChild("TopBarApp"):FindFirstChild("ActualButton") or game:GetService("CoreGui"):WaitForChild("TopBarApp"):FindFirstChild("LeftFrame"):FindFirstChild("Button")
 if button then
     button:Destroy()
+	return button:Destroy()
 end
