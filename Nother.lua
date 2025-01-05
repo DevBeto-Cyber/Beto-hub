@@ -5,7 +5,7 @@ public = false --if true will chat the logs publicly (fun, risky)
 publicItalics = true --if true will use /me to stand out
 privateProperties = { --customize private logs
 	Color = Color3.fromRGB(148,147,140); 
-	Font = Enum.Font.SourceSansBold;
+	Font = Enum.Font.Fantasy;
 	TextSize = 15;
 }
 
@@ -59,3 +59,11 @@ if not player.PlayerGui:FindFirstChild("Chat") then wait(3) end
 local chatFrame = player.PlayerGui.Chat.Frame
 chatFrame.ChatChannelParentFrame.Visible = true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
+
+
+local tp = game:GetService("CoreGui").TopBarApp
+local button = tp.TopBarFrame.LeftFrame:FindFirstChild("Button") and tp.TopBarFrame.LeftFrame.Button:FindFirstChild("ActualButton") 
+              or tp:FindFirstChild("UnibarLeftFrame") and tp.UnibarLeftFrame.StackedElements:FindFirstChild("Button")
+if button then
+  button:Destroy()
+end
