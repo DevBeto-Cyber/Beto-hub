@@ -65,5 +65,8 @@ local tp = game:GetService("CoreGui").TopBarApp
 local button = tp.TopBarFrame.LeftFrame:FindFirstChild("Button") and tp.TopBarFrame.LeftFrame.Button:FindFirstChild("ActualButton") 
               or tp:FindFirstChild("UnibarLeftFrame") and tp.UnibarLeftFrame.StackedElements:FindFirstChild("Button")
 if button then
-  button:Destroy()
+  warn("warne")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9.Value, false, game)
+
 end
