@@ -677,7 +677,7 @@ task.spawn(
                 local NamecallMethod = getnamecallmethod()
 
                 if NamecallMethod == "FireServer" and Args[1] == "SetPlayerMinigameResult" and antifail then
-                    print("Minigame result - Intercepting result to true")
+                    
                     Args[2] = true
                 end
 
